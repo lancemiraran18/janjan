@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Janjan Guban</title>
+    <!-- Font Awesome CDN for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Resetting margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #1E3A8A; /* Dark blue text */
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #1E3A8A; /* Dark blue for headings */
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E3A8A; /* Dark blue text color */
+        }
+
+        /* Global Styles */
+        section {
+            padding: 60px 20px;
+            margin-bottom: 50px;
+            background: #e0f7fa; /* Light blue background for sections */
+            border: 1px solid #1E3A8A; /* Dark blue border */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header Section */
+        header {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1E3A8A; /* Dark blue header background */
+            padding: 20px 30px;
+            border-bottom: 1px solid #1E3A8A; /* Dark blue border */
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #f0f8ff; /* White links */
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #3b82f6; /* Light blue hover color */
+            color: #1E3A8A;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            height: 80vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f8ff, #e0f7fa); /* Light blue gradient */
+            color: #1E3A8A; /* Dark blue text */
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero .buttons a {
+            padding: 12px 30px;
+            font-size: 1rem;
+            color: #f0f8ff;
+            background-color: #1E3A8A; /* Dark blue button background */
+            border-radius: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .hero .buttons a:hover {
+            background-color: #3b82f6; /* Light blue button hover */
+            color: #1E3A8A;
+            transform: translateY(-5px);
+        }
+
+        .hero img {
+            border-radius: 15px;
+            max-width: 400px;
+            height: auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* About Section */
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Activities Section */
+        .activities h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .activities p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .activities a {
+            padding: 12px 25px;
+            background: #1E3A8A; /* Dark blue button */
+            color: #f0f8ff; /* White text */
+            text-transform: uppercase;
+            font-size: 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .activities a:hover {
+            background-color: #3b82f6; /* Light blue hover button */
+            color: #1E3A8A;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .contact .email a {
+            color: #1E3A8A;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact .email a:hover {
+            color: #3b82f6; /* Light blue hover color */
+        }
+
+        /* Footer Section */
+        footer {
+            background: #1E3A8A; /* Dark blue footer */
+            color: #f0f8ff;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            border-top: 1px solid #1E3A8A; /* Dark blue border */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero img {
+                max-width: 80%;
+                margin-top: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about h2, .activities h2, .contact h2 {
+                font-size: 2rem;
+            }
+
+            .about p, .activities p, .contact p {
+                font-size: 1rem;
+            }
+
+            .hero .buttons a {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about h2, .activities h2, .contact h2 {
+                font-size: 1.8rem;
+            }
+
+            .about p, .activities p, .contact p {
+                font-size: 0.9rem;
+            }
+
+            .hero .buttons a {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+            }
+        }
+
+        .evo {
+            position: relative;
+            top: 20px;
+        }
+
+        .email {
+            color: #292517;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+            <li><a href="#activities"><i class="fas fa-clipboard-list"></i> Activities</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="hero">
+    <div class="content">
+        <h1>Hello, I'm Janjan Guban</h1>
+        <p>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY <br>1ST YEAR BLOCK B.</p>
+
+        <div class="buttons">
+            <a href="#about"><i class="fas fa-info-circle"></i> Learn More</a>
+            <a href="#activities"><i class="fas fa-eye"></i> See Activities</a>
+        </div>
+    </div>
+    <img src="download.jpg" alt="Janjan Guban">
+</section>
+
+<section class="about" id="about">
+    <h2><i class="fas fa-user-circle"></i> About Me</h2>
+    <p>Hi I'm Janjan Pomeda Guban
+        I'm 19 years old. Veritas College of Irosin. My course Bachelor of Science in Information Technology. He ancurrent living in brgy. N.Roque Bulan,Sorsogon. 
+        What encouraged me to take IT course was my Parents becasue, that's what they want for me. Also my Brother also takes this course so I was inspired by him. Specifically his skills. In addition, there is this special someone that also encourages me to choose this course because she said my health condition couldn't carry the Maritime Course.</p>
+</section>
+
+<section class="activities" id="activities">
+    <h2><i class="fas fa-briefcase"></i> Activities</h2>
+    <p>AUTOBIOGRAPHY</p>
+    <div>
+        <a href="Autobiography of Janjan Pomeda Guban.docx" download><i class="fas fa-download"></i> Download My DOCX</a>
+    </div>
+    <p class="evo">GESTS VIDEO PRESENTATION</p>
+    <div>
+        <a href="https://youtu.be/pVci2gbPqSk?si=pO2x_0cLoGGrhIj9" target="_blank"><i class="fas fa-video"></i> Video Presentation</a>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2><i class="fas fa-phone-alt"></i> Contact</h2>
+    <p class="email"><i class="fas fa-envelope"></i> Email: <a class="email" href="mailto:gubanjanjan@gmail.com">gubanjanjan@gmail.com</a></p>
+    <p><i class="fas fa-phone"></i> Phone: 09093185376</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Janjan Guban. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
